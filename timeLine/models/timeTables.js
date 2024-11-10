@@ -7,7 +7,7 @@ class TimeTables{
 
     _formatTimeTable(timeTable){
         let formatter = new TimeTableFormatter();
-        let formattedTimeTable = formatter.format();
+        let formattedTimeTable = formatter.format(timeTable);
         return formattedTimeTable;
     }
 }

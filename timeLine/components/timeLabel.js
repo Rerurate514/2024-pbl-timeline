@@ -1,0 +1,3 @@
+class TimeLabel extends View {
+    
+}

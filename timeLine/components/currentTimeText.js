@@ -1,0 +1,3 @@
+class CurrentTimeText extends View {
+    
+}

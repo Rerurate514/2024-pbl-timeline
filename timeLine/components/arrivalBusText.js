@@ -1,0 +1,3 @@
+class ArrivalBusText extends View {
+    
+}

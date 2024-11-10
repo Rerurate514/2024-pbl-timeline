@@ -1,0 +1,3 @@
+class TimeTablesWindow extends View {
+    
+}

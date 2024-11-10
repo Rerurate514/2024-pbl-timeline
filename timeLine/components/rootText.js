@@ -1,0 +1,3 @@
+class RootText extends View {
+    
+}
