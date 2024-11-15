@@ -21,7 +21,7 @@ class View {
      * 必ずこのwrapViewをオーバーライドしてViewをカスタマイズしてください。
      * 
      * @param {View} child
-     * @returns {View}  
+     * @returns View
      */
     wrapView(child){ }
 }
