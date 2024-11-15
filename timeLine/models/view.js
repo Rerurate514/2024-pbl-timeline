@@ -7,8 +7,14 @@ class View {
         if (this.constructor === View) {
             throw new TypeError('このクラスをインスタンス化しないでください。これは抽象クラスです。');
         }
+        
+        let wrapView = this.wrapView();
 
-        this.view = this.wrapView(child)
+        if (wrapView !== View) {
+            throw new Error('wrapViewメソッドでは必ずViewクラスを戻り値として設定してください');
+        }
+
+        this.view = wrapView.appendChild(child);
     }
 
     checkViewComponents(child){
@@ -19,9 +25,7 @@ class View {
 
     /**
      * 必ずこのwrapViewをオーバーライドしてViewをカスタマイズしてください。
-     * 
-     * @param {View} child
      * @returns View
      */
-    wrapView(child){ }
+    wrapView(){ }
 }
