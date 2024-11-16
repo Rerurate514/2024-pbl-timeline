@@ -8,24 +8,47 @@ class View {
             throw new TypeError('このクラスをインスタンス化しないでください。これは抽象クラスです。');
         }
         
-        let wrapView = this.wrapView();
+        let wrapView = this.createWrapView();
+        this._checkHTMLElement(wrapView, "createWrapView");
 
-        if (wrapView !== View) {
-            throw new Error('wrapViewメソッドでは必ずViewクラスを戻り値として設定してください');
-        }
+        let styledView = this.styledView(wrapView);
+        this._checkHTMLElement(styledViewView, "styledView");
 
-        this.view = wrapView.appendChild(child);
+        let embededView = this.embedScriptToView(styledView);
+        this._checkHTMLElement(embededView, "embedScriptToView");
+
+        this.view = embededView.appendChild(child);
     }
 
-    checkViewComponents(child){
-        if(typeof child !== View){
-            throw new Error("childプロパティには必ずViewオブジェクトを格納してください。")
+    _checkHTMLElement(child, msg){
+        if(typeof child !== HTMLElement){
+            throw new TypeError(msg + "には必ずHTMLElenmentオブジェクトを格納してください。")
         }
     }
 
     /**
-     * 必ずこのwrapViewをオーバーライドしてViewをカスタマイズしてください。
-     * @returns View
+     * 必ずこのwrapViewをオーバーライドしてViewのコンテナを設定してください
+     * @returns HTMLElement
      */
-    wrapView(){ }
-}
+    createWrapView(){
+        throw new TypeError("createWrapViewメソッドを必ずオーバーライドして、HTMLElement型を返り値に設定してください。");
+    }
+    
+    /**
+     * @param {HTMLElenment} element
+     * 
+     * ここで引数にスタイルを設定してください
+     */
+    styledView(element) {
+        return element;
+    }
+
+    /**
+     * @param {HTMLElenment} element
+     * 
+     * ここでスクリプトを埋め込んでください
+     */
+    embedScriptToView(element) {
+        return element;
+    }
+ }
