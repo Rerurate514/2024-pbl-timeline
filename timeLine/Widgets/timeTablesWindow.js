@@ -1,11 +1,16 @@
 class TimeTablesWindow extends View {
     constructor(child){
-        this.checkViewComponents(child);
         super(child.view);
     }
 
-    wrapView(child){
+    wrapView(){
         let tablesWindow = document.createElement("div");
-        tablesWindow.className = "tables-window"
+        return tablesWindow;
+    }
+
+    styledView(element){
+        element.className = "tables-window"
+
+        return element;
     }
 }

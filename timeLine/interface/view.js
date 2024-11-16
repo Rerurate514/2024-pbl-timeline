@@ -5,7 +5,7 @@
 class View {
     constructor(child) {
         if (this.constructor === View) {
-            throw new TypeError('このクラスをインスタンス化しないでください。これは抽象クラスです。');
+            throw new TypeError('このクラスをインスタンス化しないでください。');
         }
         
         let wrapView = this.createWrapView();
